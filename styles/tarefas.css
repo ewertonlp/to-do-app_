@@ -1,0 +1,548 @@
+@import url('./common.css');
+
+.container-fluid {
+  padding: 0 0 .5rem;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  background-color: var(--primary);
+  padding-top: 1rem;
+  margin-bottom: 3em;
+}
+
+nav a {
+  display: block;
+  width: fit-content;
+  margin-top: 1rem;
+  padding: .25rem 1rem;
+  border-bottom: .2rem solid white;
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.15rem;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  margin-left: auto;
+  padding-right: 2rem;
+}
+
+
+.user-info p{
+  font-weight: 500;
+  font-size: 1.15rem;
+  color: #fff;
+  text-transform: capitalize;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.user-info .user-image {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  background-color: white;
+  margin-left: .7em;
+}
+
+.user-image {
+  background-image: url(https://i.pravatar.cc/40);
+}
+
+#closeApp {
+  display: flex;
+  margin-left: 2rem;
+  font-size: 1.15rem;
+  padding: 5px 10px;
+
+  background-color: #fff;
+  color: var(--primary);
+  border-radius: 5px;
+
+  cursor: pointer;
+  text-decoration: none;
+  transition: all .3s ease;
+}
+
+#closeApp i {
+  color: var(--p);
+  padding-right: 0.5rem;
+}
+
+#closeApp:hover {
+  transform: translateY(-5px);
+}
+
+
+
+
+
+
+
+
+/* ---------- teste novo card --------- */
+.wrapper {
+  max-width: 750px;
+  margin: 5rem auto;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  padding: 2rem 0;
+}
+
+.task-input {
+  height: 52px;
+  padding: 0 25px;
+  position: relative;
+}
+
+.task-input i {
+  position: absolute;
+  top: 50%;
+  transform: translate(17px, -50%);
+
+  color: #bfbfbf;
+}
+
+.task-input input {
+  height: 100%;
+  width: 100%;
+  padding: 0 20px 0 53px;
+
+  font-size: 1.15rem;
+  border-radius: 0.25rem;
+  border: 1px solid #999;
+  outline: none;
+}
+
+.task-input input::placeholder{
+  color: #bfbfbf;
+}
+
+.create-btn {
+  padding-right: 3rem !important;
+}
+
+.controls, li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.controls {
+  padding: 18px 25px;
+  border-bottom: 1px solid #ccc;
+}
+
+.filters span {
+  margin: 0 8px;
+  font-size: 1.1rem;
+}
+
+.filters span:first-child {
+  margin-left: 0;
+}
+
+.filters span.active {
+  color: var(--primary);
+}
+
+.controls .clear-btn {
+  background-color: var(--primary);
+  padding: 7px 13px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.controls .clear-btn:hover {
+  background-color: var(--hover);
+}
+
+.task-box {
+  margin: 20px 25px;
+}
+
+.task-box .task {
+  list-style: none;
+
+  margin-bottom: 18px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #ccc;
+}
+
+.task-box .task:last-child {
+  margin-bottom: 0;
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.task label {
+  display: flex;
+}
+
+.task label p.checked {
+  text-decoration: line-through;
+}
+
+.task label input {
+  margin-top: 6px;
+  margin-right: 12px;
+}
+
+.task .settings {
+  cursor: pointer;
+  position: relative;
+}
+
+.settings .task-menu {
+  position: absolute;
+  padding: 5px 0;
+  right: -5px;
+  bottom: -65px;
+
+  background-color: #fff;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.12);
+  border-radius: 0.25rem;
+
+  z-index: 2;
+  transform: scale(0);
+  transform-origin: top right;
+  transition: transform 0.3s ease;
+}
+
+.settings .task-menu.show {
+  transform: scale(1);
+}
+
+.task-menu li {
+  justify-content: flex-start;
+  height: 25px;
+  margin-bottom: 2px;
+  font-size: 0.95rem;
+  padding: 16px 14px;
+}
+
+.task-menu li:hover {
+  background-color: var(--app-grey);
+}
+
+.task-menu li i{
+  padding-right: 8px;
+}
+
+
+
+
+/* Nova tarefa ----------------------------------------------------------- */
+
+.nova-tarefa {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  width: 80%;
+  margin: 2rem 5%;
+  padding: 1rem;
+  border-radius: 5px;
+  z-index: 20;
+}
+
+.nova-tarefa input[type=text] {
+  border: none;
+  flex: 1;
+  border-bottom: 1px solid lightgrey;
+  border-radius: 0;
+  font-size: 1.1em;
+}
+
+.nova-tarefa input:focus {
+  outline: none;
+  border-bottom: 1px solid var(--secondary);
+}
+
+.nova-tarefa input::placeholder {
+  color: var(--primary);
+  font-weight: 400;
+  text-indent: .2em;
+}
+
+.nova-tarefa button {
+  height: 2em;
+  width: 2em;
+  background-color: transparent;
+  margin-left: 2em;
+  margin-right: 1em;
+  opacity: .5;
+  cursor: pointer;
+}
+
+.nova-tarefa button img {
+  height: 100%;
+  width: 100%;
+  transition: all .3s ease;
+}
+
+.nova-tarefa button img:hover {
+  color: var(--secondary);
+}
+
+/* Lista de tarefas ----------------------------------------------------------- */
+.tarefas-pendentes {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+
+  list-style: none;
+  margin: 1rem 5%;
+  border-radius: 5px;
+}
+
+.tarefa {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.tarefa .descricao {
+  cursor: pointer;
+}
+
+.tarefa .not-done {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2rem;
+  width: 2rem;
+  margin-right: 1rem;
+
+  border-radius: 50%;
+  background-color: white;
+  border: 2px solid var(--primary);
+
+  color: var(--text-color);
+
+  z-index: 2;
+  transition: background-color 200ms linear;
+}
+
+
+.tarefa .not-done:hover {
+  background-color: var(--success-color);
+  color: #fff;
+}
+
+.tarefa .not-done.checked {
+  background-color: var(--success-color);
+}
+
+.tarefa:first-child .not-done::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: calc(.75rem - 0px);
+  display: block;
+  height: 3rem;
+  width: 2px;
+  background-color: var(--primary);
+}
+
+.tarefa:not(:last-child) .not-done::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: calc(.75rem - 1px);
+  display: block;
+  height: 4.5rem;
+  width: 2px;
+  background-color: var(--primary);
+}
+
+.tarefa .descricao {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  background-color: white;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+}
+
+.tarefa .descricao p.checked {
+  text-decoration: line-through;
+}
+
+.tarefa .nome {
+  color: var(--text-color);
+}
+
+.tarefa .timestamp {
+  font-size: .9em;
+  color: rgb(134, 134, 134);
+}
+
+
+
+/* Tarefas terminadas ----------------------------------------------------------- */
+.titulo-terminadas {
+  position: relative;
+  width: 10rem;
+  text-align: center;
+  padding: 1rem 1.5rem;
+  background-color: white;
+  border-radius:5px;
+  color: var(--text-color);
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-left: calc(15% - 11rem);
+  z-index: 20;
+}
+
+.tarefas-terminadas {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  list-style: none;
+  margin: 2rem 5%;
+}
+
+.tarefas-terminadas button {
+  background-color: #fff;
+  padding: 0 0.25rem;
+}
+
+.tarefas-terminadas button .ri-arrow-go-back-line {
+ color: var(--text-color);
+ background-color: #fff;
+}
+
+.tarefas-terminadas button .ri-delete-bin-6-line {
+  color: var(--error-color);
+ }
+
+.tarefas-terminadas .tarefa .descricao {
+  background-color: #fdfdfd;
+}
+
+.tarefas-terminadas .tarefa .descricao .nome {
+  color: rgb(65, 65, 65);
+  text-decoration: line-through;
+}
+
+#skeleton .descricao {
+  background-color: rgb(189, 189, 189);
+}
+
+#skeleton p {
+  background-color: rgb(214, 214, 214);
+  color: var(--secondary);
+  font-weight: 300;
+}
+
+#skeleton .not-done {
+  background-color: rgb(189, 189, 189);
+}
+
+#skeleton {
+  animation: trasparencia 1s infinite;
+}
+
+@keyframes trasparencia {
+  0% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 0.8;
+  }
+}
+
+
+
+
+/* -------- SKELETON ---------- */
+.skeleton-conteiner {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5em;
+ }
+  
+ .skeleton-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  padding: 1em 2em;
+  box-shadow: 2px 2px 5px lightgrey;
+  animation: loadingContainerAnimation 2s linear infinite;
+ }
+  
+ .skeleton-text {
+  animation: loadingTextAnimation 2s linear infinite;
+  width: 150px;
+  display: block;
+  padding: 0.7rem;
+ }
+  
+ @keyframes loadingContainerAnimation {
+  0% {
+    background: white;
+  }
+  50% {
+    background: rgb(182, 177, 177);
+  }
+  100% {
+    background: white;
+  }
+ }
+  
+ @keyframes loadingTextAnimation {
+  0% {
+    background: white;
+  }
+  50% {
+    background: rgb(128, 123, 123);
+  }
+  100% {
+    background: white;
+  }
+ }
+ 
+
+
+ /* --------- MEDIA QUERIES ------- */
+ @media screen and (max-width: 768px) {
+   .user-info p {
+     font-size: 0.875rem;
+   }
+
+   .user-info .user-image {
+     display: none;
+   }
+
+   .terminadas {
+     margin-left: 9rem;
+     font-size: 0.875rem;
+   }
+ }
+
+ @media screen and (min-width: 769px) {
+  .terminadas {
+    margin-left: 6rem;
+    font-size: 0.875rem;
+  }
+ }
+
+ @media screen and (min-width: 769px) {
+  .terminadas {
+    margin-left: 1rem;
+  }
+ }
